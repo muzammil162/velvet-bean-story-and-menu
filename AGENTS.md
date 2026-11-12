@@ -28,3 +28,10 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+## Project rules
+
+- Site-wide chrome (nav, footer, preloader, cursor, smooth scroll, route curtain) lives in `src/components/site/` and is mounted once in `src/routes/__root.tsx`; pages only render their own sections.
+- Brand content (products, menu, stores) lives in `src/lib/data.ts`; pages read from it instead of hardcoding copy, so edits happen in one place.
+- Animations use framer-motion with `MotionConfig reducedMotion="user"`; smooth scrolling uses Lenis on the window so framer `useScroll` keeps working.
+- Colors and gradients are oklch tokens/utilities in `src/styles.css`; components never use raw color classes.
